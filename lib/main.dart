@@ -19,14 +19,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-//tambhakn pada bagian Bawah [bagian statefull]
+// tambahkan pada bagian bawah [bagian Stateful]
 class TodoPage extends StatefulWidget {
   const TodoPage({super.key});
 
   @override
   State<TodoPage> createState() => _TodoPageState();
 }
+
 class _TodoPageState extends State<TodoPage> {
   final TextEditingController _controller = TextEditingController();
   List<String> todos = [];
@@ -40,11 +40,19 @@ class _TodoPageState extends State<TodoPage> {
     });
   }
 
+  void removeTodo() {
+    if (todos.isEmpty) return;
+
+    setState(() {
+      todos.removeLast();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Practice App with GitHub',),
+        title: const Text('Practice App with GitHub'),
         backgroundColor: Colors.blueAccent,
         shadowColor: Colors.pinkAccent,
         elevation: 5,
@@ -67,7 +75,14 @@ class _TodoPageState extends State<TodoPage> {
                 ElevatedButton(
                   onPressed: addTodo,
                   child: const Text('Add'),
-
+                ),
+                const SizedBox(width: 8),
+                ElevatedButton(
+                  onPressed: removeTodo,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                  ),
+                  child: const Text('Remove'),
                 ),
               ],
             ),
