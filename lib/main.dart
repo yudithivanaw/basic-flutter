@@ -44,7 +44,10 @@ class _TodoPageState extends State<TodoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Simple Todo App'),
+        title: const Text('Practice App with GitHub',),
+        backgroundColor: Colors.blueAccent,
+        shadowColor: Colors.pinkAccent,
+        elevation: 5,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -56,7 +59,7 @@ class _TodoPageState extends State<TodoPage> {
                   child: TextField(
                     controller: _controller,
                     decoration: const InputDecoration(
-                      hintText: 'Enter todo',
+                      hintText: 'Enter to do',
                     ),
                   ),
                 ),
@@ -64,6 +67,7 @@ class _TodoPageState extends State<TodoPage> {
                 ElevatedButton(
                   onPressed: addTodo,
                   child: const Text('Add'),
+
                 ),
               ],
             ),
