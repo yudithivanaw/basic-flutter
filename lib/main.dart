@@ -59,7 +59,7 @@ class _TodoPageState extends State<TodoPage> {
                   child: TextField(
                     controller: _controller,
                     decoration: const InputDecoration(
-                      hintText: 'Enter to do',
+                      hintText: 'Enter task to do',
                     ),
                   ),
                 ),
